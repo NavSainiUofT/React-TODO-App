@@ -6,12 +6,19 @@ import TodoData from "./data/tododata";
 
 function App() {
   const [todo, setTodo] = useState(TodoData);
+  const deleteTodo=(id)=>{
+    if(window.confirm("Are you sure you want to delete the TODO ITEM?")){
+
+      setTodo(todo.filter((item)=>item.id !== id))
+    }
+    
+  }
 
   return (
     <>
-      <Header text="To Do App"/>
+      <Header/>
       <div className="container">
-        <TodoList todo = {todo}/>
+        <TodoList todo = {todo} handleDelete={deleteTodo}/>
       </div>
     </>
   );

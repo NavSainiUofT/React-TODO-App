@@ -1,15 +1,19 @@
+import { FaTimes } from 'react-icons/fa'
 import React from 'react'
+import Card from './shared/Card'
 
-function TodoItem({item}) {
-
+function TodoItem({item, handleDelete}) {
 
   return (
-    <div className='card'>
+    <Card>
         <div className="num-display">{item.priority}</div>
+        <button onClick={() => handleDelete(item.id)} className='close'>
+          <FaTimes color="#CCD6A6"></FaTimes>
+        </button>
         <div className="text-display">
             {item.text}
         </div>
-    </div>
+    </Card>
   )
 }
 

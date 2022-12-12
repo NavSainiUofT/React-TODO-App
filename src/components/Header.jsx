@@ -1,4 +1,4 @@
-function Header({ text }) {
+function Header({ text="Todo App" }) {
   const headerStyle = {
     backgroundColor: "#F4EAD5",
     color: "#CCD6A6",
