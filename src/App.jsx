@@ -2,6 +2,8 @@ import { useState } from "react";
 import Header from "./components/Header";
 import TodoList from "./components/TodoList";
 import TodoData from "./data/tododata";
+import TodoStats from "./components/TodoStats";
+import TodoForm from "./components/TodoForm";
 
 
 function App() {
@@ -17,6 +19,11 @@ function App() {
   return (
     <>
       <Header/>
+      <div className="container">
+      <TodoForm/>
+      <TodoStats todo = {todo}/>
+      </div>
+      
       <div className="container">
         <TodoList todo = {todo} handleDelete={deleteTodo}/>
       </div>
