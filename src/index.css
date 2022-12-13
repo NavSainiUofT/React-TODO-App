@@ -6,6 +6,10 @@
   padding: 0;
 }
 
+.link-routes {
+  text-decoration: none;
+  color: #CCD6A6;
+}
 body {
   font-family: 'Poppins', sans-serif;
   background-color: #CCD6A6;

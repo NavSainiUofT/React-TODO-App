@@ -1,10 +1,12 @@
 import { useState } from "react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Header from "./components/Header";
 import TodoList from "./components/TodoList";
 import TodoData from "./data/tododata";
 import TodoStats from "./components/TodoStats";
 import TodoForm from "./components/TodoForm";
 import { v4 as uuidv4 } from "uuid";
+import About from "./pages/About";
 
 function App() {
   const [todo, setTodo] = useState(TodoData);
@@ -22,17 +24,30 @@ function App() {
   };
 
   return (
-    <>
-      <Header />
-      <div className="container">
-        <TodoForm handleAdd={addTodo} />
-        <TodoStats todo={todo} />
-      </div>
-
-      <div className="container">
-        <TodoList todo={todo} handleDelete={deleteTodo} />
-      </div>
-    </>
+    <Router>
+      <>
+        <Header />
+        <Routes>
+          <Route
+            exact
+            path="/"
+            element={
+              <>
+              
+                <div className="container">
+                  <TodoForm handleAdd={addTodo} />
+                  <TodoStats todo={todo} />
+                  <TodoList todo={todo} handleDelete={deleteTodo} />
+                  
+                </div>
+              </>
+            }
+          ></Route>
+          <Route path="/about" element={<About />} />
+        </Routes>
+        
+      </>
+    </Router>
   );
 }
 
